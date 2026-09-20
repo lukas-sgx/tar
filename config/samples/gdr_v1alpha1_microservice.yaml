@@ -2,7 +2,7 @@ apiVersion: gdr.soigneux.works/v1alpha1
 kind: Microservice
 metadata:
   labels:
-    app.kubernetes.io/name: goudron
+    app.kubernetes.io/name: tar
     app.kubernetes.io/managed-by: kustomize
   name: microservice-sample
 spec:

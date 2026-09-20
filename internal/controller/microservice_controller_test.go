@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	gdrv1alpha1 "github.com/lukas-sgx/goudron/api/v1alpha1"
+	gdrv1alpha1 "github.com/lukas-sgx/tar/api/v1alpha1"
 )
 
 var _ = Describe("Microservice Controller", func() {

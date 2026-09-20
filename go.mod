@@ -1,4 +1,4 @@
-module github.com/lukas-sgx/goudron
+module github.com/lukas-sgx/tar
 
 go 1.26.0
 

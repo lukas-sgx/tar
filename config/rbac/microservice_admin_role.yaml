@@ -1,4 +1,4 @@
-# This rule is not used by the project goudron itself.
+# This rule is not used by the project tar itself.
 # It is provided to allow the cluster admin to help manage permissions for users.
 #
 # Grants full permissions ('*') over gdr.soigneux.works.
@@ -9,7 +9,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
-    app.kubernetes.io/name: goudron
+    app.kubernetes.io/name: tar
     app.kubernetes.io/managed-by: kustomize
   name: microservice-admin-role
 rules:
