@@ -5,6 +5,9 @@
 # - use environment variables to overwrite this value (e.g export VERSION=0.0.2)
 VERSION ?= 0.0.1
 
+
+export PATH := $(shell go env GOPATH)/bin:$(PATH)
+
 # CHANNELS define the bundle channels used in the bundle.
 # Add a new line here if you would like to change its default config. (E.g CHANNELS = "candidate,fast,stable")
 # To re-generate a bundle for other specific channels without changing the standard setup, you can:
@@ -360,3 +363,17 @@ catalog-build: opm ## Build a catalog image.
 .PHONY: catalog-push
 catalog-push: ## Push a catalog image.
 	$(MAKE) docker-push IMG=$(CATALOG_IMG)
+
+.PHONY: kind-create
+kind: ## download kind bin
+	go install sigs.k8s.io/kind@v0.33.0
+	GOFLAGS="-mod=mod" go install sigs.k8s.io/kustomize/kustomize/v5@latest
+
+.PHONY: local
+local: kind ## create kubernetes cluster
+	kind create cluster
+	kubectl create ns sre-system
+
+.PHONY: kind-delete
+kind-delete: ## delete kind cluster
+	kind delete cluster
